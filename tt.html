@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <div class="main">
+
+
+        <form method="POST" id="form">
+
+
+            <div class="form-outer">
+                <label>name</label>
+                <input type="text" name="name">
+            </div>
+            <div class="form-outer">
+                <label>email</label>
+                <input type="text" name="email">
+            </div>
+            <div class="form-outer">
+                <button name="btn">submit</button>
+            </div>
+
+
+        </form>
+
+
+        <script>
+            let url = 'https://script.google.com/macros/s/AKfycbxK5a5jWLYRWscifiiWwbeM_gg0BqYE9DdAdCca7LY1z4NLQZr_Xmq-lfGhhIwo82JX/exec'
+
+            let form = document.querySelector('#form');
+            form.addEventListener("submit", (e) => {
+                let d = new FormData(form);
+                fetch(url, {
+                    method: "POST",
+                    body: d
+                }).then((res) => res.text())
+                    .then((finalrRes) => console.log(finalRes))
+
+                e.preventDefault();
+
+            })
+        </script>
+
+
+
+
+    </div>
+</body>
+
+</html>

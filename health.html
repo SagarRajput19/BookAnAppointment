@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Information</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script>
+		$(function () {
+			$('#footer').load('footer.html');
+		});
+	</script>
+</head>
+<style>
+    
+    /* Style the main content */
+    main {
+        padding: 20px;
+    }
+
+    section {
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+  
+    table{
+        overflow: hidden;
+        margin-top: 100px;
+    }
+    #myTable{
+        margin-left: 10px;
+        width: 1200px;
+    }
+    .search{
+        border-radius: 10px;
+        float: right;
+        height: 40px;
+        width: 200px;
+        margin-right: 50px;
+    }
+    
+
+
+.hhh{
+
+background-image: linear-gradient(to right,rgb(207, 139, 23) ,white,rgba(0, 128, 0, 0.795));
+    font-size: 30px;
+    border: 1px solid black;
+    width: 400px;
+    text-align: center;
+    border-radius: 10px;
+margin-left: 40%;
+margin-top: 100px;
+}
+
+
+/**/
+
+.barr{
+  width: 100%;
+  height: 50px;
+  background-color: #332a6b;
+}
+  
+  
+  li{
+    list-style: none;
+  }
+  
+  .logo{
+
+    font-weight: bold;
+    font-size:1.5rem;
+  }
+  
+  a{
+     font-weight: 100;
+    text-decoration: none;
+  }
+  
+  .navbar{
+  
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+  }
+  
+  .nav-menu{
+
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-branding{
+    font-size: 2rem;
+  }
+  
+  /* transition for links */
+  
+  .nav-link{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    color: #080227b6;
+    transition: 0.5s ease;
+  }
+  
+  .nav-link:hover{
+    border: 1px solid black;
+    border-radius: 5px;
+   background-color: #9d9d9e88;
+    color: dodgerblue;
+  }
+  
+  .hamburger{
+    display: none;
+    cursor: pointer;
+  }
+  
+  .bar{
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background: rgb(228, 14, 14);
+  }
+  #bartext{
+    margin-left: 60px;
+    padding-top: 15px;
+    color: white;
+  }
+  #bartext1{
+    float: right;
+    margin-right: 50px;
+  }
+  .nav-item{
+    padding: 0 1.5rem;
+  }
+ 
+  @media(max-width: 760px){
+
+    #bartext{
+  margin-left: 5px;
+  font-size:11px;
+}
+#bartext1{
+  margin-right: 22px;
+  font-size:11px;
+}
+    .bar{
+      display: block;
+    }
+  
+    .hamburger{
+      display: block;
+    }
+    .hamburger.active .bar:nth-child(2){
+      opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+      transform: rotate(45deg) translateY(11.5px); 
+    }  
+    .hamburger.active .bar:nth-child(3){
+      transform: rotate(-45deg) translateY(-11.5px); 
+    }
+  
+    .nav-menu{
+      position: fixed;
+      right: -100%;
+      top: 70px;
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+     
+      background-image: url("img/thankimg.png");
+      transition: 0.3s;
+     
+    }.nav-link{
+      color: #151046;
+    }
+  
+    .nav-item{
+      padding: 1.5rem 0;
+    }
+    
+    .nav-menu.active{
+      right: 0;
+    }
+  }
+</style>
+<body>
+    <div class="barr"><p id="bartext"> For Emargancy Call: +91XXXXXXXXX  <span id="bartext1">Goverment of HP</span></p></div>
+
+
+
+    <header>
+      <nav class="navbar">
+        <a href="#" class="fas fa-heart"> Logo</a>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="health.html" class="nav-link">Health Information</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Work</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Contact</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">  
+                 <div class="wrapper">
+                    <input type="text" id="search" placeholder="Search for.." class="search">
+                </div>
+               
+              </div>
+            </div>
+        </a>
+          </li>
+
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+
+   <div class="hhh">Health Information</div>
+
+ <!---button Script end-->
+    
+    <main>
+       
+        <center>
+            <table border="2" id="myTable">
+                <thead>
+                        <tr>
+                            <td><strong>DISEASE NAME</strong></td>
+                            <td><strong>NUTRITION</strong></td>
+                            <td><strong>EXERCISE</strong></td>
+                        </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cardiology</td>
+                        <td>
+                            <li>Pay attention to unsaturated fats, which can be found in foods like olive oil, nuts, seeds, and avocados.</li>
+                            <li>Reduce the amount of saturated fats in fried foods, full-fat dairy products, and red meat.</li>
+                            <li>Avert the trans fats that are frequently found in processed and fried foods.</li>
+                            <li>Consume a lot of whole grains, fruits, veggies, and legumes to get your fill of fiber.</li>
+                        </td>
+                        <td>
+                            <li><strong>Walking:</strong> This is one of the safest and most accessible forms of aerobic exercise. Start with short, slow walks and gradually increase the duration and intensity.</li>
+                            <li><strong>Cycling:</strong> Stationary or outdoor cycling can be a low-impact way to improve cardiovascular fitness.</li>
+                            <li><strong>Swimming:</strong> Swimming is gentle on the joints and provides a full-body workout.</li>
+                            <li><strong>Elliptical Trainer:</strong> These machines offer a low-impact workout that is easier on the joints compared to running or jogging.</li>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ONCOLOGY </td>
+                        <td>
+                            <li>Balanced Diet: Balanced diet that includes a variety of foods from all food groups, including fruits, vegetables, whole grains, lean proteins, and dairy or dairy alternatives.</li>
+                            <li>Protein: Protein is essential for maintaining and repairing tissues. Include lean sources of protein such as poultry, fish, beans, and tofu.</li>
+                            <li>Hydration: Staying well-hydrated is important, especially if cancer treatment causes dehydration or loss of appetite. Water, herbal teas, and broths can help maintain hydration.</li>
+                            <li>Fiber: Foods high in fiber, like whole grains, fruits, and vegetables, can aid in digestion and help manage side effects of treatment like constipation.</li>
+                        </td>
+                        <td>
+                            <li><strong>Low-Impact Activities::</strong> Gentle exercises like walking, swimming, or yoga can help maintain or improve fitness without putting too much strain on the body.</li>
+                            <li><strong>Strength Training:</strong> Light strength training can help maintain muscle mass and strength. Start with light weights or resistance bands under supervision.</li>
+                            <li><strong>Flexibility:</strong> Stretching exercises can improve flexibility and reduce muscle stiffness.</li>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ORTHOPAEDIC</td>
+                        <td>
+                            <li>The amino acids in proteins heal your immune system, build muscle strength, and add key nutrients for healthy bones. </li>
+                            <li> EGGS -It also plays a part in getting oxygen into your bones to help them heal. </li>
+                            <li> LOW FAT CHEESE - Reduced fat cheese actually tends to have a higher calcium content than full fat versions.</li>
+                            <li> FISH - Salmon has omega-3 fatty acids which help reduce inflammation and joint pain. It also helps fight arthritis. Other fish that help include tuna, mackerel, trout, char and whitefish.</li>
+                        </td>
+                        <td>
+                            <li><strong> LEG SIDE RAISES:</strong> This simple leg exercise helps strengthen your outer thighs, hips, and backside, which can improve the range of motion in your hips and improve your stability. It's a great way to use muscles that aren't active when you sit for long stretches of time.</li>
+                            <li><strong>COBRA STRETCH:</strong>Opens the shoulder blades, neck, and collar bones. Improves spinal posture, flexibility, and alignment.</li>
+                            <li><strong>BRISK WALK :</strong> Brisk walk increases your intake of oxygen, strengthens your heart to pump more blood, improves circulation, and lowers blood pressure.</li>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>GASTROENTEROLOGY</td>
+                        <td>
+                            <li> AVOCADO -  Avocado can be a good addition to your gastric sleeve diet. They are high in fiber, have heart healthy fats, are low in carbohydrates, and packed with nutrients.</li>
+                            <li> NUTS AND SEEDS - Nuts and seeds are rich in fiber, which is important for gut health and keeping you regular.</li>
+                            <li> LEAFY GREENS - Leafy greens, such as spinach or kale, are excellent sources of fiber, as well as nutrients like folate, vitamin C, vitamin K and vitamin A. Research shows that leafy greens also contain a specific type of sugar that helps fuel growth of healthy gut bacteria.</li>
+                        </td>
+                        <td>
+                            <li><strong>SPINAL TWIST :</strong> Twists are great nourishing and detoxifying poses to help aid digestion. Twists help massage abdominal organs and stimulate Agni, or digestive fire.</li>
+                            <li><strong>BRIDGE POSE:</strong>  This pose impacts is your abdomen . It in return, improves your digestion by lowering constipation issues and the level of acid in the stomach</li>
+                            <li><strong> VAJRASANA:</strong> Performing vajrasana helps our digestive system in many ways. It obstructs blood flow to our legs and thighs and increases it in our stomach area, thus improving our bowel movements and relieving constipation.</li>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>NEUROLOGY</td>
+                        <td>
+                            <li>Reduce the amount of saturated fats in fried foods, full-fat dairy products, and red meat.</li>
+                            <li>Avert the trans fats that are frequently found in processed and fried foods.</li>
+                            <li>Consume a lot of whole grains, fruits, veggies, and legumes to get your fill of fiber.</li>
+                        </td>
+                        <td>
+                            <li><strong>Walking:</strong> This is one of the safest and most accessible forms of aerobic exercise. Start with short, slow walks and gradually increase the duration and intensity.</li>
+                            <li><strong>Cycling:</strong> Stationary or outdoor cycling can be a low-impact way to improve cardiovascular fitness.</li>
+                            <li><strong>Swimming:</strong> Swimming is gentle on the joints and provides a full-body workout.</li>
+                            <li><strong>Elliptical Trainer:</strong> These machines offer a low-impact workout that is easier on the joints compared to running or jogging.</li>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>GYNECOLOGY PATIENTS</td>
+                        <td>
+                            <li>Calcium and Vitamin D: Adequate calcium and vitamin D intake is essential for bone health, especially for women.</li>
+                            <li>Iron: If you have heavy menstrual bleeding, maintain an iron-rich diet or consider supplements too in ur diet </li>
+                            <li>Folate: If planning for pregnancy, ensure sufficient folate intake to prevent neural tube defects.</li>
+                            <li>Hydration: Stay hydrated, especially if you experience vaginal dryness due to hormonal changes.</li>
+                        </td>
+                        <td>
+                            <li><strong>Aerobic Exercise:</strong>Engage in regular aerobic activities like walking, swimming, or cycling to improve cardiovascular health.</li>
+                            <li><strong>Strength Training:</strong>  Include strength training exercises to maintain muscle mass and bone density.</li>
+                            <li><strong>Pelvic Floor Exercises:</strong> Kegel exercises can help with pelvic floor strength, which is important for some gynecological conditions.</li>
+                            <li><strong>Yoga and Stretching:</strong>  Gentle yoga and stretching can aid in flexibility and stress management.</li>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> DERMATOLOGY PATIENTS</td>
+                        <td>
+                            <li>Limit Sugars and Processed Foods: High sugar and processed foods can lead to inflammation and exacerbate certain dermatological conditions.</li>
+                            <li>Antioxidants: Incorporate foods rich in antioxidants like fruits (e.g., berries, citrus), vegetables (e.g., spinach, carrots), and nuts to help protect your skin from damage caused by free radicals.</li>
+                            <li>Omega-3 Fatty Acids: Consume foods with omega-3 fatty acids like fatty fish (salmon, mackerel), flaxseeds, and walnuts to support skin health and reduce inflammation.</li>
+                            <li>Vitamins and Minerals: Ensure an adequate intake of vitamins and minerals, especially vitamin C (collagen production), vitamin E (skin protection), and zinc (wound healing).</li>
+                        </td>
+                        <td>
+                            <li><strong>Regular Activity:</strong> Engage in regular physical activity to improve blood circulation, which can contribute to healthy skin.</li>
+                            <li><strong>Sweating:</strong> Sweating can help clear pores and remove toxins from the skin. Just remember to cleanse your skin after exercise to prevent clogged pores.</li>
+                            <li><strong>Stress Reduction: </strong>Exercise is an excellent way to manage stress, which can exacerbate skin conditions like acne or psoriasis.</li>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>OPHTHALMOLOGY PATIENTS</td>
+                        <td>
+                            <li>Antioxidants: Foods rich in antioxidants like vitamins A, C, and E, as well as minerals like zinc and selenium, can support eye health. Examples include carrots, sweet potatoes, leafy greens, citrus fruits, nuts, and seeds.</li>
+                            <li>Omega-3 Fatty Acids: Incorporate fatty fish (e.g., salmon, trout), flaxseeds, and walnuts into your diet. Omega-3s are beneficial for reducing the risk of age-related macular degeneration (AMD) and dry eye syndrome.</li>
+                            <li>Lutein and Zeaxanthin: These antioxidants are found in spinach, kale, and other leafy greens. They help protect the retina and may reduce the risk of AMD.</li>
+                        </td>
+                        <td>
+                            <li><strong>Eye Exercises:</strong>Eye exercises like focusing on a near object and then a distant one can help reduce eye strain. Blinking exercises can also prevent dry eyes.</li>
+                            <li><strong>Cardiovascular Exercise:</strong>  Regular aerobic exercise can help maintain healthy blood circulation, which is vital for eye health.</li>
+                            <li><strong>Eye Massage:</strong> Gently massage your eyelids in a circular motion using your fingertips. This can help relax your eye muscles.</li>
+                            <li><strong>Focus Shifting:</strong>Hold your thumb about 10 inches in front of your face and focus on it. Then, shift your focus to an object in the distance. Repeat this several times to exercise your eye muscles.</li>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> ENDOCRINOLOGY PATIENTS</td>
+                        <td>
+                            <li>Carbohydrate Management: For diabetes patients, managing carbohydrate intake is essential. Learn about carbohydrate counting and glycemic index to help control blood sugar levels.</li>
+                            <li>Fiber: Include high-fiber foods like whole grains, legumes, and vegetables in the diet, as they can help stabilize blood sugar levels and promote digestive health.</li>
+                            <li>Portion Control: Be mindful of portion sizes to prevent overeating. This is especially important for those managing diabetes or obesity.</li>
+                            <li>Regular Meal Timing: Stick to regular meal and snack times to help maintain stable blood sugar levels.</li>
+                        </td>
+                        <td>
+                            <li><strong>Aerobic Exercise:</strong>Engage in regular aerobic exercises like walking, swimming, cycling, or dancing. Aim for at least 150 minutes of moderate-intensity aerobic activity per week.</li>
+                            <li><strong>Strength Training:</strong>  Include strength training exercises to build muscle, improve metabolism, and support bone health. This can be done 2-3 times per week.</li>
+                            <li><strong>Flexibility and Balance:</strong> Incorporate stretching and balance exercises, such as yoga or tai chi, to enhance flexibility and reduce the risk of falls.</li>
+                            <li><strong>Blood Sugar Monitoring:</strong>If you have diabetes, monitor blood sugar levels before, during, and after exercise to understand how physical activity affects your body.</li>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> PEDIATRICS PATIENT</td>
+                        <td>
+                            <li>Portion Control: Pay attention to portion sizes to prevent overeating. Children's portion sizes should be appropriate for their age and activity level.</li>
+                            <li>Hydration: Encourage drinking plenty of water throughout the day. Limit sugary drinks like soda and excessive fruit juices. </li>
+                            <li>Food Allergies and Sensitivities: Be aware of any food allergies or sensitivities the child may have and avoid trigger foods.</li>
+                            <li>Family Meals: Encourage family meals whenever possible to promote healthy eating habits and social interaction.</li>
+                        </td>
+                        <td>
+                            <li><strong>Encourage Play:</strong>For younger children, unstructured playtime is important for their physical development. Let them play freely and explore their environment.</li>
+                            <li><strong>Safety First:</strong>  Ensure that children use appropriate safety gear, such as helmets for biking and appropriate padding for contact sports.</li>
+                            <li><strong>Age-Appropriate Activities:</strong> Choose age-appropriate physical activities that the child enjoys. This could be playing sports, riding a bike, swimming, dancing, or simply playing outdoors.</li>
+                            <li><strong>Screen Time Limitations:</strong> Limit screen time (TV, computer, video games, etc.) to no more than 1-2 hours per day for recreational use. Encourage physical play instead.</li>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>UROLOGY PATEINT </td>
+                        <td>
+                            <li>Reducing Sodium: Limiting sodium (salt) intake can help manage high blood pressure and reduce the risk of kidney stones. Avoid processed and salty foods, and opt for fresh, whole foods.</li>
+                            <li>Calcium Intake: Kidney stone patients should balance their calcium intake. Too much or too little calcium can contribute to stone formats. </li>
+                            <li>Limit Oxalate-Rich Foods: If you have calcium oxalate kidney stones, reduce consumption of high-oxalate foods like spinach, beets, nuts, and chocolate.</li>
+                            <li>Avoid Caffeine and Alcohol: These substances can irritate the bladder and worsen urinary incontinence. Reducing or eliminating them from your diet may be beneficial.</li>
+                        </td>
+                        <td>
+                            <li><strong>Kegel Exercises:</strong>for dividuals with urinary incontinence, Kegel exercises can help strengthen pelvic floor muscles, improving bladder control. These exercises involve contracting and relaxing the pelvic muscles.</li>
+                            <li><strong>Aerobic Exercise:</strong>  Regular aerobic activities like walking, cycling, and swimming can promote overall health, reduce the risk of obesity, and improve urinary function.</li>
+                            <li><strong>Maintain a Healthy Weight:</strong>If you're overweight, losing weight through a combination of diet and exercise can alleviate pressure on the bladder and reduce the risk of urinary issues.</li>
+                            <li><strong>Core Strengthening:</strong> Strengthening your core muscles can provide better support for your bladder and pelvic organs. Pilates and specific core exercises can be beneficial.</li>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> NEPHROLOGY PATEINT</td>
+                        <td>
+                            <li>Monitor Protein Intake: Depending on the stage of kidney disease, your healthcare provider may recommend limiting protein intake. Reducing high-protein foods like red meat, poultry, and fish can help lower the workload on the kidneys.</li>
+                            <li>Control Phosphorus and Potassium: Elevated phosphorus and potassium levels are common concerns in kidney disease. Limit foods high in phosphorus, such as dairy products, nuts, and beans. </li>
+                            <li>Manage Sodium (Salt) Intake: Reducing sodium is essential for managing blood pressure and fluid balance in kidney patients.</li>
+                            <li>Choose Heart-Healthy Fats: Opt for heart-healthy fats like olive oil, avocados, and nuts, while limiting saturated and trans fats found in fried and processed foods.</li>
+                        </td>
+                        <td>
+                            <li><strong>Flexibility and Stretching:</strong>Incorporate stretching exercises to maintain flexibility and joint mobility. This can be especially important if you have limited mobility due to kidney disease-related issues.</li>
+                            <li><strong>Aerobic Exercise:</strong> Engage in moderate-intensity aerobic activities like walking, cycling, or swimming. Aim for at least 150 minutes of aerobic exercise per week, or as advised by your healthcare provider. Cardiovascular fitness is essential for overall health.</li>
+                            <li><strong>Monitor Blood Pressure:</strong>  If you have high blood pressure, monitor it regularly and consult your healthcare provider to ensure it's well-controlled during exercise.</li>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>NUTRITION FOR ENT ( EAR  ,NOSE AND THROAT )</td>
+                        <td>
+                            <li>Vitamin C: Foods rich in vitamin C, such as citrus fruits, strawberries, and bell peppers, can help boost your immune system and reduce the severity of colds and allergies.</li>
+                            <li>Omega-3 Fatty Acids: Include sources of omega-3 fatty acids in your diet, like fatty fish (e.g., salmon, mackerel), flaxseeds, and walnuts. Omega-3s may help reduce inflammation and support healthy mucous membranes. </li>
+                            <li>Limit Irritants: Avoid foods and beverages that can irritate the throat or worsen acid reflux, such as spicy foods, caffeine, and alcohol.</li>
+                        </td>
+                        <td>
+                            <li><strong>Posture:</strong> Maintain good posture, especially for individuals with chronic throat or voice issues. Proper posture can help with vocal clarity and reduce strain on the neck and vocal cords.</li>
+                            <li><strong>Vocal Warm-Ups:</strong>  If you have voice-related concerns, consider vocal warm-up exercises, especially before speaking engagements or singing. A speech therapist can provide guidance.</li>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>PULMONOLOGY PATIENTS</td>
+                        <td>
+                            <li>Protein Intake: Ensure you get enough protein to support muscle strength and repair. If you have muscle weakness due to your pulmonary condition, consider lean sources of protein and possibly protein supplements.</li>
+                            <li>Omega-3 Fatty Acids: Include foods rich in omega-3 fatty acids, such as fatty fish (e.g., salmon, mackerel), flaxseeds, and walnuts. Omega-3s may help reduce inflammation and improve lung function. </li>
+                            <li>Antioxidants: Consume foods rich in antioxidants, like berries, dark leafy greens, and citrus fruits. Antioxidants can help protect lung tissue from damage caused by inflammation and oxidative stress.</li>
+                            <li>Hydration: Stay well-hydrated to keep mucus in the airways thin and easier to clear.</li>
+                        </td>
+                        <td>
+                            <li><strong>Flexibility Exercises:</strong> Stretching exercises can help maintain joint mobility and reduce muscle tension. This is especially important if your condition limits your movement.</li>
+                            <li><strong>Pursed-Lip Breathing:</strong> Learn and practice pursed-lip breathing, which can help improve airflow and relieve shortness of breath during and after physical activity.</li>
+                            <li><strong>Interval Training:</strong>   Interval training, with periods of higher-intensity exercise followed by rest, can be effective for building lung capacity and improving endurance.</li>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </center>
+    </main>
+    <!-- Humberger script--> 
+    <script>
+        const hamburger = document.querySelector(".hamburger")
+  const nav_menu = document.querySelector(".nav-menu")
+  
+  hamburger.addEventListener("click",()=>{
+    hamburger.classList.toggle("active");
+    nav_menu.classList.toggle("active");
+  })
+  
+  document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    nav_menu.classList.remove("active");
+  }))
+  
+      </script>
+    <script>
+        // JavaScript for filtering the table
+        const searchInput = document.getElementById('search');
+        const table = document.getElementById('myTable');
+        const tableRows = table.getElementsByTagName('tr');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            for (let i = 1; i < tableRows.length; i++) {
+                const row = tableRows[i];
+                const rowData = row.getElementsByTagName('td');
+
+                let found = false;
+                for (let j = 0; j < rowData.length; j++) {
+                    const cell = rowData[j];
+                    if (cell.textContent.toLowerCase().includes(searchTerm)) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (found) {
+                    row.style.display = 'table-row';
+                } else {
+                    row.style.display = 'none';
+                }
+            }
+        });
+    </script>
+  
+<div id="footer"></div>
+</body>
+</html>

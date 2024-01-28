@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devolop by Sagar</title>
+
+
+
+
+
+
+    <link rel="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Header -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+    <script>
+        $(function () {
+            $('#header').load('header.html');
+        });
+    </script>
+    <script>
+        $(function () {
+            $('#footer').load('footer.html');
+        });
+    </script>
+    <style>
+          .layer {
+                margin-top: 30px;
+                width: 100%;
+                height: 400px;
+                background-image: url("img/surgery.jpg");
+                background-repeat: no-repeat;
+              
+                background-size: cover;
+                overflow: hidden;
+            }
+
+            .layer1 {
+                position: absolute;
+                margin-top: 0px;
+                left: 0;
+                width: 100%;
+                height: 400px;
+                background-color: #453a8dc5;
+            }
+
+            /*tablle*/
+
+            .hos1{
+            
+            overflow: hidden;
+            margin-top: 100px;
+            margin-left: 240px;
+        }
+        .hos1 thead,tfoot{
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            
+        }
+        .hos1 td{
+            width: auto;
+            height: 40px;
+            font-display: center;
+        }
+
+#footer{
+    margin-top: 200px;
+}
+            /*table end*/
+        
+    </style>
+
+
+<body onload="generateRandomNumber()">
+    
+
+    
+    <div id="header"> </div>
+
+    <section class="layer">
+        <div class="layer1"></div>
+    </section>
+
+        <table border="2" class="hos1">
+            <thead>
+                <tr>
+                    <td>S no.</td>
+                    <td>District</td>
+                    <td>Hospital Name</td>
+                    <td>Contact No.</td>
+                    <td>Hospital Type</td>
+                    <td>No. of Available Doctor's</td>
+                </tr>
+            </thead><br>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Bilaspur</td>
+                    <td>Regional Hospital, Bilaspur</td>
+                    <td>1978222586</td>
+                    <td>Public</td>
+                    <td><p id="randomNumber1"></p></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Bilaspur</td>
+                    <td>Civil Hospital, Ghumarwin</td>
+                    <td>7018403084 </td>
+                    <td>Public</td>
+                    <td><p id="randomNumber2"></p></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Bilaspur</td>
+                    <td>Dhanvantri Hospital</td>
+                    <td>9650993517</td>
+                    <td>Government Of India	</td>
+                    <td><p id="randomNumber3"></p></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Bilaspur</td>
+                    <td>AIIMS Bilaspur Himachal Pradesh</td>
+                    <td>7018000927</td>
+                    <td>Government Of India</td>
+                    <td><p id="randomNumber4"></p></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Bilaspur</td>
+                    <td>Sapphire Healthcare</td>
+                    <td>8219120426</td>
+                    <td>Private</td>
+                    <td><p id="randomNumber5"></p></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Chamba</td>
+                    <td>Civil Hospital, Dalhousie</td>
+                    <td>1899242125</td>
+                    <td>Public</td>
+                    <td><p id="randomNumber6"></p></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Chamba</td>
+                    <td>Civil Hospital,Tissa</td>
+                    <td>1896227050</td>
+                    <td>Public</td>
+                    <td><p id="randomNumber7"></p></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Chamba</td>
+                    <td>Pt JLNMC And Hospital, Chamba</td>
+                    <td>9418304432</td>
+                    <td>Public</td>
+                    <td><p id="randomNumber8"></p></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Chamba</td>
+                    <td>Rana Hospital</td>
+                    <td>9816735411	</td>
+                    <td>Private</td>
+                    <td><p id="randomNumber9"></p></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Chamba</td>
+                    <td>SWAMI SHRI HARIGIRI MULTISPECIALTY HOSPITAL KAKIRA</td>
+                    <td>9459082019</td>
+                    <td>Private</td>
+                    <td><p id="randomNumber10"></p></td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>HAMIRPUR</td>
+                    <td>Civil Hospital, Tauni Devi</td>
+                    <td>7018637416</td>
+                    <td>Public</td>
+                    <td><p id="randomNumber11"></p></td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>HAMIRPUR</td>
+                    <td>Dr RKGMC Hospital, Hamirpur	</td>
+                    <td>8864635301</td>
+                    <td>Public</td>
+                    <td><p id="randomNumber12"></p></td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>HAMIRPUR</td>
+                    <td>Aastha Hospital</td>
+                    <td>9418046262	</td>
+                    <td>Private </td>
+                    <td><p id="randomNumber13"></p></td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>HAMIRPUR</td>
+                    <td>Parvati Hospital	</td>
+                    <td>8626903774</td>
+                    <td>Private </td>
+                    <td><p id="randomNumber14"></p></td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>HAMIRPUR</td>
+                    <td>Community Health Centre, Sujanpur Tira</td>
+                    <td>9816415711	</td>
+                    <td>Public</td>
+                    <td><p id="randomNumber15"></p></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <td>S no.</td>
+                <td>District</td>
+                <td>Hospital Name</td>
+                <td>Contact No.</td>
+                <td>Hospital Type</td>
+                <td>No. of Available Doctor's</td>
+            </tfoot>
+        </table>
+        <script>
+            function generateRandomNumber() {
+                var randomNumber1 = Math.floor(Math.random() * 30) + 1;
+                var randomNumberElement = document.getElementById("randomNumber1");
+                randomNumberElement.textContent ="  "+randomNumber1;
+                var randomNumber2 = Math.floor(Math.random() * 30) + 1;
+                var randomNumberElement = document.getElementById("randomNumber2");
+                randomNumberElement.textContent ="  "+randomNumber2;
+                var randomNumber3 = Math.floor(Math.random() * 30) + 1;
+                var randomNumberElement = document.getElementById("randomNumber3");
+                randomNumberElement.textContent ="  "+randomNumber3;
+                var randomNumber4 = Math.floor(Math.random() * 30) + 1;
+                var randomNumberElement = document.getElementById("randomNumber4");
+                randomNumberElement.textContent ="  "+randomNumber4;
+                var randomNumber5 = Math.floor(Math.random() * 30) + 1;
+                var randomNumberElement = document.getElementById("randomNumber5");
+                randomNumberElement.textContent ="  "+randomNumber5;
+                var randomNumber6 = Math.floor(Math.random() * 30) + 1;
+                var randomNumberElement = document.getElementById("randomNumber6");
+                randomNumberElement.textContent ="  "+randomNumber6;
+                var randomNumber7 = Math.floor(Math.random() * 30) + 1;
+                var randomNumberElement = document.getElementById("randomNumber7");
+                randomNumberElement.textContent ="  "+randomNumber7;
+                var randomNumber8 = Math.floor(Math.random() * 30) + 1;
+                var randomNumberElement = document.getElementById("randomNumber8");
+                randomNumberElement.textContent ="  "+randomNumber8;
+                var randomNumber9 = Math.floor(Math.random() * 30) + 1;
+                var randomNumberElement = document.getElementById("randomNumber9");
+                randomNumberElement.textContent ="  "+randomNumber9;
+                var randomNumber10 = Math.floor(Math.random() * 30) + 1;
+                var randomNumberElement = document.getElementById("randomNumber10");
+                randomNumberElement.textContent ="  "+randomNumber10;
+                var randomNumber11 = Math.floor(Math.random() * 30) + 1;
+                var randomNumberElement = document.getElementById("randomNumber11");
+                randomNumberElement.textContent ="  "+randomNumber11;
+                var randomNumber12 = Math.floor(Math.random() * 30) + 1;
+                var randomNumberElement = document.getElementById("randomNumber12");
+                randomNumberElement.textContent ="  "+randomNumber12;
+                var randomNumber13 = Math.floor(Math.random() * 30) + 1;
+                var randomNumberElement = document.getElementById("randomNumber13");
+                randomNumberElement.textContent ="  "+randomNumber13;
+                var randomNumber14 = Math.floor(Math.random() * 30) + 1;
+                var randomNumberElement = document.getElementById("randomNumber14");
+                randomNumberElement.textContent ="  "+randomNumber14;
+                var randomNumber15 = Math.floor(Math.random() * 30) + 1;
+                var randomNumberElement = document.getElementById("randomNumber15");
+                randomNumberElement.textContent ="  "+randomNumber15;
+            }
+        </script>
+        
+    
+
+
+
+
+    
+    <div id="footer"> </div>
+</body>
+</head>

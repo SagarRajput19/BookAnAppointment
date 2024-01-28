@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+<script>
+    $(function () {
+        $('#header').load('header.html');
+    });
+</script>
+<script>
+    $(function () {
+        $('#footer').load('footer.html');
+    });
+</script>
+</head>
+
+<style>
+       .hospital {
+      margin-top: 200px;}
+    .hospital {
+        float: left;
+        padding-top: 20px;
+        width: 80%;
+        height:1900px;
+        background-color: rgba(239, 244, 244, 0.644);
+        margin-left: 10%;
+    }
+
+    .hos {
+        margin-left: 10%;
+        margin-top: 20px;
+        width: 80%;
+        height: 150px;
+        background-color: #ffff;
+    }
+
+    .hospital1 {
+
+        float: left;
+        margin-top: 10px;
+        width: 40%;
+        height: 130px;
+
+        margin-left: 40px;
+    }
+
+    img {
+        width: 150px;
+        height: 100%;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .num {
+        width: 100%;
+        height: 50px;
+
+    }
+
+    h2 {margin-top: 20px;
+        font-size: 20px;
+    }
+
+    h5 {
+        font-size:40px;
+        float: right;
+        margin-top: -30px;
+        margin-right: 5px;
+    }
+    section{
+        margin-top: 200px;
+
+    }
+</style>
+
+<body onload="generateRandomNumber()">
+    <div id="header"> </div>
+  
+    <div class="hospital">
+
+        <div class="hos">
+            <div class="hospital1">
+                <img src="img/regional.jpeg" alt="">
+                    </div>
+                        <div class="hospital1" width="00">
+                          <h1>Regional Hospital, Bilaspur <br>contact:+911978222586</h1>
+                             <div class="num">
+                        <h2>Doctor Available </h2>
+                      <h5 id="randomNumber1"></h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="hos">
+            <div class="hospital1">
+                <img src="img/gum.jpeg" alt="">
+                    </div>
+                        <div class="hospital1" width="00">
+                          <h1>Civil Hospital, Ghumarwin Bilaspur <br>contact:+917018403084</h1>
+                             <div class="num">
+                        <h2>Doctor Available </h2>
+                        <h5 id="randomNumber2"></h5>
+                </div>
+            </div>
+        </div>
+        <div class="hos">
+            <div class="hospital1">
+                <img src="img/drr.jpg" alt="">
+                    </div>
+                        <div class="hospital1" width="00">
+                          <h1>Dhanvantri Hospital, Bilaspur <br>contact:+919650993517</h1>
+                             <div class="num">
+                        <h2>Doctor Available </h2>
+                        <h5 id="randomNumber3"></h5>
+                </div>
+            </div>
+        </div>
+        <div class="hos">
+            <div class="hospital1">
+                <img src="img/aiims.jpeg" alt="">
+                    </div>
+                        <div class="hospital1" width="00">
+                          <h1>AIIMS, Bilaspur <br>contact:+917018000927</h1>
+                             <div class="num">
+                        <h2>Doctor Available </h2>
+                        <h5 id="randomNumber4"></h5>
+                </div>
+            </div>
+        </div>
+        <div class="hos">
+            <div class="hospital1">
+                <img src="img/Sapphire.jpeg" alt="">
+                    </div>
+                        <div class="hospital1" width="00">
+                          <h1>Sapphire Healthcare, Bilaspur <br>contact:+918219120426</h1>
+                             <div class="num">
+                        <h2>Doctor Available</h2>
+                        <h5 id="randomNumber5"></h5>
+                </div>
+            </div>
+        </div>
+        <div class="hos">
+            <div class="hospital1">
+                <img src="img/Civil Hospital, Dalhousie.jpeg" alt="">
+                    </div>
+                        <div class="hospital1" width="00">
+                          <h1>Civil Hospital, Dalhousie<br>contact:+911896227050</h1>
+                             <div class="num">
+                        <h2>Doctor Available</h2>
+                        <h5 id="randomNumber6"></h5>
+                </div>
+            </div>
+        </div>
+        <div class="hos">
+            <div class="hospital1">
+                <img src="img/Civil Hospital, Dalhousie.jpeg" alt="">
+                    </div>
+                        <div class="hospital1" width="00">
+                          <h1>Civil Hospital,Tissa <br>contact:+911896227050</h1>
+                             <div class="num">
+                        <h2>Doctor Available</h2>
+                        <h5 id="randomNumber7"></h5>
+                </div>
+            </div>
+        </div>
+        <div class="hos">
+            <div class="hospital1">
+                <img src="img/drr.jpg" alt="">
+                    </div>
+                        <div class="hospital1" width="00">
+                          <h1>Pt JLNMC And Hospital, Chamba <br>contact:+919418304432</h1>
+                             <div class="num">
+                        <h2>Doctor Available</h2>
+                        <h5 id="randomNumber8"></h5>
+                </div>
+            </div>
+        </div>
+        <div class="hos">
+            <div class="hospital1">
+                <img src="img/drr.jpg" alt="">
+                    </div>
+                        <div class="hospital1" width="00">
+                          <h1>SWAMI SHRI HARIGIRI MULTISPECIALTY HOSPITAL KAKIRA <br>contact:+919459082019</h1>
+                             <div class="num">
+                        <h2>Doctor Available</h2>
+                        <h5 id="randomNumber9"></h5>
+                </div>
+            </div>
+        </div>
+        <div class="hos">
+            <div class="hospital1">
+                <img src="img/drr.jpg" alt="">
+                    </div>
+                        <div class="hospital1" width="00">
+                          <h1>Civil Hospital, Tauni Devi <br>contact:+917018637416</h1>
+                             <div class="num">
+                        <h2>Doctor Available </h2>
+                        <h5 id="randomNumber10"></h5>
+                </div>
+            </div>
+        </div>
+        <div class="hos">
+            <div class="hospital1">
+                <img src="img/drr.jpg" alt="">
+                    </div>
+                        <div class="hospital1" width="00">
+                          <h1>Dr RKGMC Hospital, Hamirpur<br>contact:+918864635301</h1>
+                             <div class="num">
+                        <h2>Doctor Available </h2>
+                        <h5 id="randomNumber11"></h5>
+                </div>
+            </div>
+        </div>
+    
+
+    </div>
+
+    <script>
+        function generateRandomNumber() {
+            var randomNumber1 = Math.floor(Math.random() * 30) + 1;
+            var randomNumberElement = document.getElementById("randomNumber1");
+            randomNumberElement.textContent ="  "+randomNumber1;
+            var randomNumber2 = Math.floor(Math.random() * 30) + 1;
+            var randomNumberElement = document.getElementById("randomNumber2");
+            randomNumberElement.textContent ="  "+randomNumber2;
+            var randomNumber3 = Math.floor(Math.random() * 30) + 1;
+            var randomNumberElement = document.getElementById("randomNumber3");
+            randomNumberElement.textContent ="  "+randomNumber3;
+            var randomNumber4 = Math.floor(Math.random() * 30) + 1;
+            var randomNumberElement = document.getElementById("randomNumber4");
+            randomNumberElement.textContent ="  "+randomNumber4;
+            var randomNumber5 = Math.floor(Math.random() * 30) + 1;
+            var randomNumberElement = document.getElementById("randomNumber5");
+            randomNumberElement.textContent ="  "+randomNumber5;
+            var randomNumber6 = Math.floor(Math.random() * 30) + 1;
+            var randomNumberElement = document.getElementById("randomNumber6");
+            randomNumberElement.textContent ="  "+randomNumber6;
+            var randomNumber7 = Math.floor(Math.random() * 30) + 1;
+            var randomNumberElement = document.getElementById("randomNumber7");
+            randomNumberElement.textContent ="  "+randomNumber7;
+            var randomNumber8 = Math.floor(Math.random() * 30) + 1;
+            var randomNumberElement = document.getElementById("randomNumber8");
+            randomNumberElement.textContent ="  "+randomNumber8;
+            var randomNumber9 = Math.floor(Math.random() * 30) + 1;
+            var randomNumberElement = document.getElementById("randomNumber9");
+            randomNumberElement.textContent ="  "+randomNumber9;
+            var randomNumber10 = Math.floor(Math.random() * 30) + 1;
+            var randomNumberElement = document.getElementById("randomNumber10");
+            randomNumberElement.textContent ="  "+randomNumber10;
+            var randomNumber11 = Math.floor(Math.random() * 30) + 1;
+            var randomNumberElement = document.getElementById("randomNumber11");
+            randomNumberElement.textContent ="  "+randomNumber11;
+            var randomNumber12 = Math.floor(Math.random() * 30) + 1;
+            var randomNumberElement = document.getElementById("randomNumber12");
+            randomNumberElement.textContent ="  "+randomNumber12;
+            var randomNumber13 = Math.floor(Math.random() * 30) + 1;
+            var randomNumberElement = document.getElementById("randomNumber13");
+            randomNumberElement.textContent ="  "+randomNumber13;
+            var randomNumber14 = Math.floor(Math.random() * 30) + 1;
+            var randomNumberElement = document.getElementById("randomNumber14");
+            randomNumberElement.textContent ="  "+randomNumber14;
+            var randomNumber15 = Math.floor(Math.random() * 30) + 1;
+            var randomNumberElement = document.getElementById("randomNumber15");
+            randomNumberElement.textContent ="  "+randomNumber15;
+        }
+    </script>
+<section class="ft">  <div id="footer"> </div></section>
+
+</body>
+
+</html>

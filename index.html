@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Devolop by Sagar</title>
+
+
+
+
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="stylesheet" href="plugins/icofont/icofont.min.css">
+	<link rel="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="stylesheet" href="style.css">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!--Header -->
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+		integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+	<script>
+		$(function () {
+			$('#header').load('header.html');
+		});
+	</script>
+	<script>
+		$(function () {
+			$('#footer').load('footer.html');
+		});
+	</script>
+
+
+</head>
+<!--Header end-->
+
+
+
+
+<body>
+
+
+	<div id="header"> </div>
+
+	<div class="bg">
+
+		<div class="row">
+
+			<div class="col-1">
+				<h2>Better Healthcare Better Tomorrow.</h2>
+				<h3>Your Loved Ones Deserve Only The Best.</h3>
+				<a href="appoinment.html"><button type="button" id="btn">Appoinment→</button></a>
+			</div>
+
+			<div class="color-box"></div>
+
+		</div>
+
+	</div>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="container">
+
+		<div class="contain">
+			<p> <i class="fa-regular fa-clock fa-beat-fade"></i> &nbsp &nbsp24 Hours </p>
+			<img src="img/bookappo.svg" alt="" class="img1" width="200">
+			<a href="appoinment.html"><button> Make a Appoinment <span>→</span></button></a>
+		</div>
+
+
+		<div class="contain">
+			    <p><i class="fa-solid fa-phone  fa-xl"></i> &nbsp &nbsp Emegency Cases
+				<img src="img/bookappo.svg" alt="" class="img1" width="200">
+				<a href="tel: 918299305586"><button>Call Emergency Support<span>→</span></button></a>
+		</div>
+
+		<div class="contain">
+			<p> <i class="fa-regular fa-clock fa-beat-fade"></i> &nbsp &nbsp24 Hours </p>
+			<img src="img/bookappo.svg" alt="" class="img1" width="200">
+			<a href="consultant.html"><button>Online consultant<span>→</span></button></a>
+		</div>
+
+
+	</div>
+
+	<style>
+
+
+	</style>
+
+	<div class="data">
+
+		<div class="containerr">
+			<i class="fas fa-user-doctor"></i><br>
+			<span class="num" data-val="3210">000</span>+<br>
+			<span class="text">Expert Doctor</span>
+		</div>
+		<div class="containerr">
+			<i class="fas fa-hospital"></i><br>
+			<span class="num" data-val="380">000</span>+<br>
+			<span class="text">Hospitals</span>
+		</div>
+		<div class="containerr">
+			<i class="fas fa-stethoscope"></i><br>
+			<span class="num" data-val="1500">000</span>+<br>
+			<span class="text">Operations</span>
+		</div>
+		<div class="containerr">
+			<i class="fas fa-user-doctor"></i><br>
+			<span class="num" data-val="1030">000</span>+<br>
+			<span class="text">Surgery Comepleted</span>
+		</div>
+
+
+
+
+	</div>
+	<!-- Script -->
+	<script>let valueDisplays = document.querySelectorAll(".num");
+		let interval = 4000;
+
+		valueDisplays.forEach((valueDisplay) => {
+			let startValue = 0;
+			let endValue = parseInt(valueDisplay.getAttribute("data-val"));
+			let duration = Math.floor(interval / endValue);
+			let counter = setInterval(function () {
+				startValue += 1;
+				valueDisplay.textContent = startValue;
+				if (startValue == endValue) {
+					clearInterval(counter);
+				}
+			}, duration);
+		});</script>
+
+
+	<!--- Availibility-->
+
+
+	<div class="doctor">
+		<div class="doctor1">
+			
+			<h2 class="title">Check doctor availability</h2>
+			<p class="mt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad fugiat unde totam sunt
+				laboriosam, vero voluptas exercitationem atque blanditiis ratione iusto in nemo rerum repellendus.</p>
+			<br>
+			<a href="test.html" class="btn"> &nbsp available  doctors  &nbsp→ </a>
+	    </div>
+		    <div class="doctor1">
+			<img src="img\drr.jpg" alt="">
+		  </div>
+	</div>
+	<!-- Availibility end-->
+
+
+	<div class="doctor">
+		<div class="doctor1">
+			<img src="img\doctor.png" alt="">
+		</div>
+		<div class="doctor1">
+
+			<h2 class="title">Personal care <br>& healthy living</h2>
+			<p class="mt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad fugiat unde totam sunt
+				laboriosam, vero voluptas exercitationem atque blanditiis ratione iusto in nemo rerum repellendus.</p>
+			<br>
+			<a href="appoinment.html" class="btn"> &nbsp Appoinment &nbsp→ </a>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- specialization-->
+
+	<style>
+
+	</style>
+
+	<div class="scpl">
+
+		<div class="spl"><a href="drspec.html"><img src="img/s1.jpg" alt=""></a>
+			<p class="type">Dermatologist</p>
+		</div>
+		<div class="spl"><a href="drspec.html"><img src="img/s2.jpg" alt=""></a>
+			<p class="type">Cardiology</p>
+		</div>
+		<div class="spl"><a href="drspec.html"><img src="img/s3.jpg" alt=""></a>
+			<p class="type">ENT(Eae,Nose,Throat)</p>
+		</div>
+		<div class="spl"><a href="drspec.html"><img src="img/s4.jpg" alt=""></a>
+			<p class="type">Nephrology</p>
+		</div>
+		<div class="spl"><a href="drspec.html"><img src="img/s5.jpg" alt=""></a>
+			<p class="type">Gynecology</p>
+		</div>
+		<div class="spl"><a href="drspec.html"><img src="img/s6.jpg" alt=""></a>
+			<p class="type">Gastroenterology</p>
+		</div>
+		<div class="spl"><a href="drspec.html"><img src="img/s7.jpg" alt=""></a>
+			<p class="type">Neurology</p>
+		</div>
+		<div class="spl"><a href="drspec.html"><img src="img/s8.jpg" alt=""></a>
+			<p class="type">Urology</p>
+		</div>
+		<div class="spl"><a href="drspec.html"><img src="img/s9.jpg" alt=""></a>
+			<p class="type">Endocrinology</p>
+		</div>
+		<div class="spl"><a href="drspec.html"><img src="img/s10.jpg" alt=""></a>
+			<p class="type">Neurosurgery</p>
+		</div>
+		<div class="spl"><a href="drspec.html"><img src="img/s11.jpg" alt=""></a>
+			<p class="type">Pulmonology</p>
+		</div>
+		<div class="spl"><a href="drspec.html"><img src="img/s12.jpg" alt=""></a>
+			<p class="type">Oncology</p>
+		</div>
+		<div class="spl"><a href="drspec.html"><img src="img/s13.jpg" alt=""></a>
+			<p class="type">Opthalmology</p>
+		</div>
+		<div class="spl"><a href="drspec.html"><img src="img/s14.jpg" alt=""></a>
+			<p class="type">Orthopedic</p>
+		</div>
+		<div class="spl"><a href="drspec.html"><img src="img/s16.jpg" alt=""></a>
+			<p class="type">Pediatrics</p>
+		</div>
+
+
+
+
+
+	</div>
+
+
+
+
+	<!-- specialization end-->
+
+
+
+
+
+	<!-- footer start-->
+	<div id="footer"></div>
+	<!---footer end-->
+
+</body>
+
+</html>
