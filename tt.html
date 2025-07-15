@@ -48,7 +48,463 @@
 
             })
         </script>
+<script>
 
+
+(() => {
+  // Constants & Globals
+  const appointmentsKey = "appointmentsData";
+  const dateFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  const timeFormatOptions = { hour: '2-digit', minute: '2-digit' };
+
+  // In-memory store
+  let appointments = [];
+
+  // UI Elements
+  const form = document.getElementById("appointmentForm");
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const dateInput = document.getElementById("date");
+  const timeInput = document.getElementById("time");
+  const descInput = document.getElementById("description");
+  const appointmentsList = document.getElementById("appointmentsList");
+  const selectedDateDisplay = document.getElementById("selectedDate");
+  const prevDayBtn = document.getElementById("prevDay");
+  const nextDayBtn = document.getElementById("nextDay");
+
+  // Current selected date for viewing appointments
+  let selectedDate = new Date();
+  selectedDate.setHours(0, 0, 0, 0);
+
+  // Utility functions
+  function saveAppointments() {
+    localStorage.setItem(appointmentsKey, JSON.stringify(appointments));
+  }
+
+  function loadAppointments() {
+    const data = localStorage.getItem(appointmentsKey);
+    if (data) {
+      appointments = JSON.parse(data);
+      // Convert date/time strings back to Date objects where necessary
+      appointments = appointments.map(appt => ({
+        ...appt,
+        dateTime: new Date(appt.dateTime)
+      }));
+    }
+  }
+
+  function formatDate(date) {
+    return date.toLocaleDateString(undefined, dateFormatOptions);
+  }
+
+  function formatTime(date) {
+    return date.toLocaleTimeString(undefined, timeFormatOptions);
+  }
+
+  function combineDateTime(dateStr, timeStr) {
+    // DateStr in yyyy-mm-dd, timeStr in HH:MM
+    return new Date(`${dateStr}T${timeStr}:00`);
+  }
+
+  function isTimeConflict(newAppt) {
+    // Check if newAppt dateTime conflicts with existing appointments
+    // Assuming 30 minutes slots for simplicity
+    const newStart = newAppt.dateTime.getTime();
+    const newEnd = newStart + 30 * 60000;
+
+    return appointments.some(appt => {
+      if (appt.dateTime.toDateString() !== newAppt.dateTime.toDateString()) return false;
+      const existingStart = appt.dateTime.getTime();
+      const existingEnd = existingStart + 30 * 60000;
+      return (newStart < existingEnd) && (existingStart < newEnd);
+    });
+  }
+
+  // UI Functions
+  function clearForm() {
+    form.reset();
+  }
+
+  function renderAppointments() {
+    // Filter appointments for selectedDate
+    const dayAppts = appointments.filter(appt =>
+      appt.dateTime.toDateString() === selectedDate.toDateString()
+    );
+
+    // Clear previous list
+    appointmentsList.innerHTML = "";
+
+    if (dayAppts.length === 0) {
+      appointmentsList.innerHTML = "<p>No appointments for this day.</p>";
+      return;
+    }
+
+    // Sort by time
+    dayAppts.sort((a, b) => a.dateTime - b.dateTime);
+
+    // Create list elements
+    dayAppts.forEach((appt, index) => {
+      const li = document.createElement("li");
+      li.classList.add("appointment-item");
+      li.innerHTML = `
+        <strong>${appt.name}</strong> (${appt.email})<br>
+        <em>${formatTime(appt.dateTime)}</em><br>
+        ${appt.description ? `<p>${appt.description}</p>` : ""}
+        <button class="delete-btn" data-index="${index}">Delete</button>
+      `;
+      appointmentsList.appendChild(li);
+    });
+  }
+
+  function updateSelectedDateDisplay() {
+    selectedDateDisplay.textContent = formatDate(selectedDate);
+  }
+
+  // Event Handlers
+  function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const date = dateInput.value;
+    const time = timeInput.value;
+    const description = descInput.value.trim();
+
+    // Validation
+    if (!name || !email || !date || !time) {
+      alert("Please fill in all required fields (Name, Email, Date, Time).");
+      return;
+    }
+    if (!validateEmail(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    const dateTime = combineDateTime(date, time);
+    const now = new Date();
+    if (dateTime < now) {
+      alert("You cannot book an appointment in the past.");
+      return;
+    }
+
+    const newAppt = { name, email, dateTime, description };
+
+    if (isTimeConflict(newAppt)) {
+      alert("This time slot is already booked. Please choose another.");
+      return;
+    }
+
+    // Add appointment
+    appointments.push(newAppt);
+    saveAppointments();
+    clearForm();
+
+    // If appointment is for current viewed day, re-render
+    if (newAppt.dateTime.toDateString() === selectedDate.toDateString()) {
+      renderAppointments();
+    }
+
+    alert("Appointment booked successfully!");
+  }
+
+  function handleDeleteClick(event) {
+    if (!event.target.classList.contains("delete-btn")) return;
+
+    const index = parseInt(event.target.dataset.index);
+    if (isNaN(index)) return;
+
+    // Remove appointment from the filtered list and from global appointments
+    // We have to find the actual appointment in global array by matching details
+    const dayAppts = appointments.filter(appt =>
+      appt.dateTime.toDateString() === selectedDate.toDateString()
+    );
+
+    const toDelete = dayAppts[index];
+    if (!toDelete) return;
+
+    const globalIndex = appointments.findIndex(appt =>
+      appt.name === toDelete.name &&
+      appt.email === toDelete.email &&
+      appt.dateTime.getTime() === toDelete.dateTime.getTime() &&
+      appt.description === toDelete.description
+    );
+
+    if (globalIndex !== -1) {
+      if (confirm("Are you sure you want to delete this appointment?")) {
+        appointments.splice(globalIndex, 1);
+        saveAppointments();
+        renderAppointments();
+      }
+    }
+  }
+
+  function validateEmail(email) {
+    // Simple regex for email validation
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
+
+  function handlePrevDay() {
+    selectedDate.setDate(selectedDate.getDate() - 1);
+    updateSelectedDateDisplay();
+    renderAppointments();
+  }
+
+  function handleNextDay() {
+    selectedDate.setDate(selectedDate.getDate() + 1);
+    updateSelectedDateDisplay();
+    renderAppointments();
+  }
+
+  function init() {
+    loadAppointments();
+    updateSelectedDateDisplay();
+    renderAppointments();
+
+    form.addEventListener("submit", handleFormSubmit);
+    appointmentsList.addEventListener("click", handleDeleteClick);
+    prevDayBtn.addEventListener("click", handlePrevDay);
+    nextDayBtn.addEventListener("click", handleNextDay);
+  }
+
+  // Initialize after DOM loaded
+  document.addEventListener("DOMContentLoaded", init);
+})();
+</script>
+
+<script>
+/**
+ * Appointment Booking System
+ * --------------------------
+ * Features:
+ * - Add appointments with validation
+ * - Display appointments by day
+ * - Delete appointments
+ * - Simple time slot conflict check
+ * - Persist appointments in localStorage
+ * - Basic calendar navigation
+ */
+
+(() => {
+  // Constants & Globals
+  const appointmentsKey = "appointmentsData";
+  const dateFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  const timeFormatOptions = { hour: '2-digit', minute: '2-digit' };
+
+  // In-memory store
+  let appointments = [];
+
+  // UI Elements
+  const form = document.getElementById("appointmentForm");
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const dateInput = document.getElementById("date");
+  const timeInput = document.getElementById("time");
+  const descInput = document.getElementById("description");
+  const appointmentsList = document.getElementById("appointmentsList");
+  const selectedDateDisplay = document.getElementById("selectedDate");
+  const prevDayBtn = document.getElementById("prevDay");
+  const nextDayBtn = document.getElementById("nextDay");
+
+  // Current selected date for viewing appointments
+  let selectedDate = new Date();
+  selectedDate.setHours(0, 0, 0, 0);
+
+  // Utility functions
+  function saveAppointments() {
+    localStorage.setItem(appointmentsKey, JSON.stringify(appointments));
+  }
+
+  function loadAppointments() {
+    const data = localStorage.getItem(appointmentsKey);
+    if (data) {
+      appointments = JSON.parse(data);
+      // Convert date/time strings back to Date objects where necessary
+      appointments = appointments.map(appt => ({
+        ...appt,
+        dateTime: new Date(appt.dateTime)
+      }));
+    }
+  }
+
+  function formatDate(date) {
+    return date.toLocaleDateString(undefined, dateFormatOptions);
+  }
+
+  function formatTime(date) {
+    return date.toLocaleTimeString(undefined, timeFormatOptions);
+  }
+
+  function combineDateTime(dateStr, timeStr) {
+    // DateStr in yyyy-mm-dd, timeStr in HH:MM
+    return new Date(`${dateStr}T${timeStr}:00`);
+  }
+
+  function isTimeConflict(newAppt) {
+    // Check if newAppt dateTime conflicts with existing appointments
+    // Assuming 30 minutes slots for simplicity
+    const newStart = newAppt.dateTime.getTime();
+    const newEnd = newStart + 30 * 60000;
+
+    return appointments.some(appt => {
+      if (appt.dateTime.toDateString() !== newAppt.dateTime.toDateString()) return false;
+      const existingStart = appt.dateTime.getTime();
+      const existingEnd = existingStart + 30 * 60000;
+      return (newStart < existingEnd) && (existingStart < newEnd);
+    });
+  }
+
+  // UI Functions
+  function clearForm() {
+    form.reset();
+  }
+
+  function renderAppointments() {
+    // Filter appointments for selectedDate
+    const dayAppts = appointments.filter(appt =>
+      appt.dateTime.toDateString() === selectedDate.toDateString()
+    );
+
+    // Clear previous list
+    appointmentsList.innerHTML = "";
+
+    if (dayAppts.length === 0) {
+      appointmentsList.innerHTML = "<p>No appointments for this day.</p>";
+      return;
+    }
+
+    // Sort by time
+    dayAppts.sort((a, b) => a.dateTime - b.dateTime);
+
+    // Create list elements
+    dayAppts.forEach((appt, index) => {
+      const li = document.createElement("li");
+      li.classList.add("appointment-item");
+      li.innerHTML = `
+        <strong>${appt.name}</strong> (${appt.email})<br>
+        <em>${formatTime(appt.dateTime)}</em><br>
+        ${appt.description ? `<p>${appt.description}</p>` : ""}
+        <button class="delete-btn" data-index="${index}">Delete</button>
+      `;
+      appointmentsList.appendChild(li);
+    });
+  }
+
+  function updateSelectedDateDisplay() {
+    selectedDateDisplay.textContent = formatDate(selectedDate);
+  }
+
+  // Event Handlers
+  function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const date = dateInput.value;
+    const time = timeInput.value;
+    const description = descInput.value.trim();
+
+    // Validation
+    if (!name || !email || !date || !time) {
+      alert("Please fill in all required fields (Name, Email, Date, Time).");
+      return;
+    }
+    if (!validateEmail(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    const dateTime = combineDateTime(date, time);
+    const now = new Date();
+    if (dateTime < now) {
+      alert("You cannot book an appointment in the past.");
+      return;
+    }
+
+    const newAppt = { name, email, dateTime, description };
+
+    if (isTimeConflict(newAppt)) {
+      alert("This time slot is already booked. Please choose another.");
+      return;
+    }
+
+    // Add appointment
+    appointments.push(newAppt);
+    saveAppointments();
+    clearForm();
+
+    // If appointment is for current viewed day, re-render
+    if (newAppt.dateTime.toDateString() === selectedDate.toDateString()) {
+      renderAppointments();
+    }
+
+    alert("Appointment booked successfully!");
+  }
+
+  function handleDeleteClick(event) {
+    if (!event.target.classList.contains("delete-btn")) return;
+
+    const index = parseInt(event.target.dataset.index);
+    if (isNaN(index)) return;
+
+    // Remove appointment from the filtered list and from global appointments
+    // We have to find the actual appointment in global array by matching details
+    const dayAppts = appointments.filter(appt =>
+      appt.dateTime.toDateString() === selectedDate.toDateString()
+    );
+
+    const toDelete = dayAppts[index];
+    if (!toDelete) return;
+
+    const globalIndex = appointments.findIndex(appt =>
+      appt.name === toDelete.name &&
+      appt.email === toDelete.email &&
+      appt.dateTime.getTime() === toDelete.dateTime.getTime() &&
+      appt.description === toDelete.description
+    );
+
+    if (globalIndex !== -1) {
+      if (confirm("Are you sure you want to delete this appointment?")) {
+        appointments.splice(globalIndex, 1);
+        saveAppointments();
+        renderAppointments();
+      }
+    }
+  }
+
+  function validateEmail(email) {
+    // Simple regex for email validation
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
+
+  function handlePrevDay() {
+    selectedDate.setDate(selectedDate.getDate() - 1);
+    updateSelectedDateDisplay();
+    renderAppointments();
+  }
+
+  function handleNextDay() {
+    selectedDate.setDate(selectedDate.getDate() + 1);
+    updateSelectedDateDisplay();
+    renderAppointments();
+  }
+
+  function init() {
+    loadAppointments();
+    updateSelectedDateDisplay();
+    renderAppointments();
+
+    form.addEventListener("submit", handleFormSubmit);
+    appointmentsList.addEventListener("click", handleDeleteClick);
+    prevDayBtn.addEventListener("click", handlePrevDay);
+    nextDayBtn.addEventListener("click", handleNextDay);
+  }
+
+  // Initialize after DOM loaded
+  document.addEventListener("DOMContentLoaded", init);
+})();
+</script>
 
 
 
